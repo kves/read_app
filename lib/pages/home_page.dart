@@ -14,7 +14,9 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Stack(
           children: [
-            Image.asset('lib/assets/images/reading_man.png'),
+            Image.asset(
+              'lib/assets/images/reading_man.png',
+            ),
             SingleChildScrollView(
               child: Align(
                 alignment: Alignment.bottomRight,
