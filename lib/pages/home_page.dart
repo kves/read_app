@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:read_app/data/book_data.dart';
 import 'package:read_app/models/book_model.dart';
 
 import '../widgets/add_book_dialog.dart';
@@ -14,18 +15,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          children: const [Text('sad')],
+    return Consumer<BookData>(
+      builder: (context, value, child) => Scaffold(
+        body: SafeArea(
+          child: ListView.builder(
+            itemCount: value.getBooksList().length,
+            itemBuilder: (context, index) => ListTile(
+              title: Text('asdasd'),
+            ),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: showAddBookDialog,
-        backgroundColor: Colors.brown,
-        child: Icon(
-          Icons.menu_book_rounded,
-          size: 32,
+        floatingActionButton: FloatingActionButton(
+          onPressed: showAddBookDialog,
+          backgroundColor: Colors.brown,
+          child: const Icon(
+            Icons.menu_book_rounded,
+            size: 32,
+          ),
         ),
       ),
     );

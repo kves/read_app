@@ -12,7 +12,7 @@ class _AddBookDialogState extends State<AddBookDialog> {
   Widget build(BuildContext context) {
     return Dialog(
         backgroundColor: Colors.transparent,
-        insetPadding: EdgeInsets.all(40),
+        insetPadding: const EdgeInsets.all(40),
         child: Stack(
           clipBehavior: Clip.none,
           alignment: Alignment.center,
@@ -22,7 +22,7 @@ class _AddBookDialogState extends State<AddBookDialog> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.brown[200]),
-              padding: EdgeInsets.fromLTRB(20, 50, 20, 20),
+              padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
               child: SingleChildScrollView(
                 child: Column(
                   children: [

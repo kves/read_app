@@ -1,4 +1,4 @@
-class BookModel {
+class Book {
   final String bookTitle;
   final String? bookAuthor;
   final String? bookPages;
@@ -6,7 +6,7 @@ class BookModel {
   final String? bookAddedDate;
   final String? bookCoverFromApi;
 
-  BookModel({
+  Book({
     required this.bookTitle,
     this.bookAuthor,
     this.bookPages,

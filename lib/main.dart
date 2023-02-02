@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:read_app/data/book_data.dart';
 import 'package:read_app/pages/main_page.dart';
 
 void main() {
@@ -10,20 +12,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.brown,
-        inputDecorationTheme: const InputDecorationTheme(
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              width: 1.2,
-              color: Colors.brown,
+    return ChangeNotifierProvider(
+      create: (context) => BookData(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.brown,
+          inputDecorationTheme: const InputDecorationTheme(
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                width: 1.2,
+                color: Colors.brown,
+              ),
             ),
           ),
         ),
+        home: const MainPage(),
       ),
-      home: const MainPage(),
     );
   }
 }
