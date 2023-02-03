@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           child: ListView.builder(
             itemCount: value.getBooksList().length,
             itemBuilder: (context, index) => ListTile(
-              title: Text('asdasd'),
+              title: Text(value.getBooksList()[index].bookTitle),
             ),
           ),
         ),
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   void showAddBookDialog() {
     showDialog(
       context: context,
-      builder: (context) => AddBookDialog(),
+      builder: (context) => const AddBookDialog(),
     );
   }
 }

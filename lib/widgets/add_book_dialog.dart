@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:read_app/data/book_data.dart';
 
 class AddBookDialog extends StatefulWidget {
   const AddBookDialog({super.key});
@@ -8,141 +10,140 @@ class AddBookDialog extends StatefulWidget {
 }
 
 class _AddBookDialogState extends State<AddBookDialog> {
+  // book title controller.
+  final bookTitleController = TextEditingController();
+
+  // book author controller.
+  final bookAuthorController = TextEditingController();
+
+  // number of pages controller.
+  final bookPagesController = TextEditingController();
+
+  // rating controller
+  final bookRatingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
-        backgroundColor: Colors.transparent,
-        insetPadding: const EdgeInsets.all(40),
-        child: Stack(
-          clipBehavior: Clip.none,
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.brown[200]),
-              padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(), hintText: 'Book title'),
+      backgroundColor: Colors.transparent,
+      insetPadding: const EdgeInsets.all(40),
+      child: Stack(
+        clipBehavior: Clip.none,
+        alignment: Alignment.center,
+        children: [
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.brown[200]),
+            padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  // book title.
+                  TextField(
+                    controller: bookTitleController,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(), hintText: 'Book title'),
+                  ),
+                  const SizedBox(height: 10),
+                  // book author.
+                  TextField(
+                    controller: bookAuthorController,
+                    decoration: const InputDecoration(
+                      hintText: 'Book author',
+                      border: OutlineInputBorder(),
                     ),
-                    SizedBox(height: 10),
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Book author',
-                        border: OutlineInputBorder(),
+                  ),
+                  const SizedBox(height: 10),
+                  // number of pages.
+                  TextField(
+                    controller: bookPagesController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                      hintText: 'Pages',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+
+                  // rating.
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Icon(
+                        Icons.star,
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        hintText: 'Pages',
-                        border: OutlineInputBorder(),
+                      Icon(
+                        Icons.star,
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(
-                          Icons.star,
-                        ),
-                        Icon(
-                          Icons.star,
-                        ),
-                        Icon(
-                          Icons.star,
-                        ),
-                        Icon(
-                          Icons.star,
-                        ),
-                        Icon(
-                          Icons.star,
-                        ),
-                        Icon(
-                          Icons.star,
-                        ),
-                        Icon(
-                          Icons.star,
-                        ),
-                        Icon(
-                          Icons.star,
-                        ),
-                        Icon(
-                          Icons.star,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                      Icon(
+                        Icons.star,
+                      ),
+                      Icon(
+                        Icons.star,
+                      ),
+                      Icon(
+                        Icons.star,
+                      ),
+                      Icon(
+                        Icons.star,
+                      ),
+                      Icon(
+                        Icons.star,
+                      ),
+                      Icon(
+                        Icons.star,
+                      ),
+                      Icon(
+                        Icons.star,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: save,
+                        child: const Text('save'),
+                      ),
+                      TextButton(
+                        onPressed: cancel,
+                        child: const Text('cancel'),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Positioned(
-                top: -60,
-                child: Image.asset(
-                  "lib/assets/images/book.png",
-                  scale: 8,
-                ))
-          ],
-        ));
-  }
-}
-
-class Rating extends StatefulWidget {
-  const Rating({super.key});
-
-  @override
-  State<Rating> createState() => _RatingState();
-}
-
-class _RatingState extends State<Rating> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Icon(
-            Icons.star,
           ),
-          Icon(
-            Icons.star,
-          ),
-          Icon(
-            Icons.star,
-          ),
-          Icon(
-            Icons.star,
-            size: 36,
-          ),
-          Icon(
-            Icons.star,
-            size: 36,
-          ),
-          Icon(
-            Icons.star,
-            size: 36,
-          ),
-          Icon(
-            Icons.star,
-            size: 36,
-          ),
-          Icon(
-            Icons.star,
-            size: 36,
-          ),
-          Icon(
-            Icons.star,
-            size: 36,
+          Positioned(
+            top: -60,
+            child: Image.asset(
+              "lib/assets/images/book.png",
+              scale: 8,
+            ),
           ),
         ],
       ),
     );
+  }
+
+  // save book method.
+  void save() {
+    // add book to bookData list.
+    Provider.of<BookData>(context, listen: false).addBook(
+      bookTitleController.text,
+      bookAuthorController.text,
+      bookPagesController.text,
+      bookRatingController.text,
+    );
+    // pop dialog.
+    Navigator.pop(context);
+  }
+
+  // cancel adding book, pop dialog.
+  void cancel() {
+    Navigator.pop(context);
   }
 }
