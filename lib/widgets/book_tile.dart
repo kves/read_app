@@ -32,51 +32,56 @@ class BookTile extends StatelessWidget {
                     height: 100,
                     child: Placeholder(),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // book title.
-                        Text(
-                          bookTitle,
-                          style: const TextStyle(
-                            fontSize: 24,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // book title.
+                          Text(
+                            bookTitle,
+                            style: const TextStyle(
+                              fontSize: 24,
+                            ),
                           ),
-                        ),
 
-                        // book author.
-                        Row(
-                          children: [
-                            const Text(
-                              'Author:',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              bookAuthor ?? '',
-                              style: const TextStyle(fontSize: 16),
-                            ),
-                          ],
-                        ),
+                          // book author.
+                          Row(
+                            children: [
+                              const Text(
+                                'Author:',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              const SizedBox(width: 4),
+                              Expanded(
+                                child: Text(
+                                  bookAuthor ?? '',
+                                  style: const TextStyle(fontSize: 16),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
+                          ),
 
-                        const SizedBox(height: 4),
+                          const SizedBox(height: 4),
 
-                        // book pages.
-                        Row(
-                          children: [
-                            const Text(
-                              'Pages:',
-                              style: TextStyle(fontSize: 12),
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              bookPages ?? '',
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                          ],
-                        ),
-                      ],
+                          // book pages.
+                          Row(
+                            children: [
+                              const Text(
+                                'Pages:',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                bookPages ?? '',
+                                style: const TextStyle(fontSize: 12),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

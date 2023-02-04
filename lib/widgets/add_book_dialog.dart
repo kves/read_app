@@ -79,6 +79,7 @@ class _AddBookDialogState extends State<AddBookDialog> {
                   TextField(
                     controller: bookPagesController,
                     keyboardType: TextInputType.number,
+                    maxLength: 4,
                     decoration: const InputDecoration(
                       hintText: 'Pages',
                       border: OutlineInputBorder(),
