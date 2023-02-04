@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:read_app/data/book_data.dart';
 import 'package:read_app/models/book_model.dart';
+import 'package:read_app/widgets/book_tile.dart';
 
 import '../widgets/add_book_dialog.dart';
 
@@ -20,8 +21,10 @@ class _HomePageState extends State<HomePage> {
         body: SafeArea(
           child: ListView.builder(
             itemCount: value.getBooksList().length,
-            itemBuilder: (context, index) => ListTile(
-              title: Text(value.getBooksList()[index].bookTitle),
+            itemBuilder: (context, index) => BookTile(
+              bookTitle: value.getBooksList()[index].bookTitle,
+              bookAuthor: value.getBooksList()[index].bookAuthor,
+              bookPages: value.getBooksList()[index].bookPages,
             ),
           ),
         ),

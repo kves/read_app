@@ -3,14 +3,7 @@ import 'package:read_app/models/book_model.dart';
 
 class BookData extends ChangeNotifier {
   // list containing all added books.
-  List<Book> booksList = [
-    // default book.
-    Book(
-        bookTitle: 'Harry Potter',
-        bookAuthor: 'J.K Rowling',
-        bookPages: '450',
-        bookRating: '5/10'),
-  ];
+  List<Book> booksList = [];
 
   // get the list of books.
   List<Book> getBooksList() {

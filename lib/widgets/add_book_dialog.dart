@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:read_app/data/book_data.dart';
+import 'package:read_app/pages/home_page.dart';
 
 class AddBookDialog extends StatefulWidget {
   const AddBookDialog({super.key});
@@ -22,6 +23,23 @@ class _AddBookDialogState extends State<AddBookDialog> {
   // rating controller
   final bookRatingController = TextEditingController();
 
+  // FocusNode when user doesn't fill bookTitle textfield and will tap save button.
+  late FocusNode bookTitleFocusNode;
+  @override
+  void initState() {
+    super.initState();
+
+    bookTitleFocusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the focus node when the Form is disposed.
+    bookTitleFocusNode.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -42,6 +60,7 @@ class _AddBookDialogState extends State<AddBookDialog> {
                 children: [
                   // book title.
                   TextField(
+                    focusNode: bookTitleFocusNode,
                     controller: bookTitleController,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), hintText: 'Book title'),
@@ -131,15 +150,20 @@ class _AddBookDialogState extends State<AddBookDialog> {
 
   // save book method.
   void save() {
-    // add book to bookData list.
-    Provider.of<BookData>(context, listen: false).addBook(
-      bookTitleController.text,
-      bookAuthorController.text,
-      bookPagesController.text,
-      bookRatingController.text,
-    );
-    // pop dialog.
-    Navigator.pop(context);
+    // focus user on bookTitle text field when bookTitle isn't filled.
+    if (bookTitleController.text.isEmpty) {
+      bookTitleFocusNode.requestFocus();
+    } else {
+      // add book to bookData list.
+      Provider.of<BookData>(context, listen: false).addBook(
+        bookTitleController.text,
+        bookAuthorController.text,
+        bookPagesController.text,
+        bookRatingController.text,
+      );
+      // pop dialog.
+      Navigator.pop(context);
+    }
   }
 
   // cancel adding book, pop dialog.
