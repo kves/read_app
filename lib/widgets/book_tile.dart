@@ -4,8 +4,13 @@ class BookTile extends StatelessWidget {
   final String bookTitle;
   final String? bookAuthor;
   final String? bookPages;
+  final String? bookRating;
   const BookTile(
-      {super.key, required this.bookTitle, this.bookAuthor, this.bookPages});
+      {super.key,
+      required this.bookTitle,
+      this.bookAuthor,
+      this.bookPages,
+      this.bookRating});
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +85,7 @@ class BookTile extends StatelessWidget {
                               ),
                             ],
                           ),
+                          Text(bookRating ?? ''),
                         ],
                       ),
                     ),

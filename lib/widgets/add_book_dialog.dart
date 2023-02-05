@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:read_app/data/book_data.dart';
-import 'package:read_app/pages/home_page.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AddBookDialog extends StatefulWidget {
-  const AddBookDialog({super.key});
+  final String? bookRating;
+  const AddBookDialog({
+    super.key,
+    this.bookRating,
+  });
 
   @override
   State<AddBookDialog> createState() => _AddBookDialogState();
@@ -85,41 +89,21 @@ class _AddBookDialogState extends State<AddBookDialog> {
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  const SizedBox(height: 10),
 
+                  const SizedBox(height: 10),
                   // rating.
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Icon(
-                        Icons.star,
-                      ),
-                      Icon(
-                        Icons.star,
-                      ),
-                      Icon(
-                        Icons.star,
-                      ),
-                      Icon(
-                        Icons.star,
-                      ),
-                      Icon(
-                        Icons.star,
-                      ),
-                      Icon(
-                        Icons.star,
-                      ),
-                      Icon(
-                        Icons.star,
-                      ),
-                      Icon(
-                        Icons.star,
-                      ),
-                      Icon(
-                        Icons.star,
-                      ),
-                    ],
+                  RatingBar.builder(
+                    itemCount: 10,
+                    itemSize: 30,
+                    glow: false,
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      size: 5,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) => addRating(rating.toString()),
                   ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -147,6 +131,10 @@ class _AddBookDialogState extends State<AddBookDialog> {
         ],
       ),
     );
+  }
+
+  void addRating(String rating) {
+    bookRatingController.text = rating;
   }
 
   // save book method.
