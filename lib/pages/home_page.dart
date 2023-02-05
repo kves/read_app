@@ -19,7 +19,20 @@ class _HomePageState extends State<HomePage> {
       builder: (context, value, child) => Scaffold(
         body: value.isbookListEmpty
             ? SafeArea(
-                child: Text('ADD BOOK BELOW'),
+                child: Column(
+                  children: [
+                    Image.asset('lib/assets/images/book_empty.png'),
+                    const Text(
+                      'Your library is empty :(',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                    const SizedBox(height: 30),
+                    const Text(
+                      'Add book you recently read by clicking the button below.',
+                      style: TextStyle(fontSize: 14),
+                    )
+                  ],
+                ),
               )
             : SafeArea(
                 child: ListView.builder(
