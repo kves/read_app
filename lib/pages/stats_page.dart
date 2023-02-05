@@ -1,16 +1,32 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:read_app/data/book_data.dart';
 
-class StatsPage extends StatefulWidget {
+class StatsPage extends StatelessWidget {
   const StatsPage({super.key});
 
   @override
-  State<StatsPage> createState() => _StatsPageState();
-}
-
-class _StatsPageState extends State<StatsPage> {
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Consumer<BookData>(
+      builder: (context, value, child) => Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.local_fire_department_outlined,
+                  size: 160,
+                  color: Colors.orange,
+                ),
+                Text(
+                  "Wow! You've read ${value.getPagesSum().toString()} pages!",
+                  style: const TextStyle(fontSize: 24),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

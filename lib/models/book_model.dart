@@ -15,5 +15,3 @@ class Book {
     this.bookCoverFromApi,
   });
 }
-
-void addBook() {}
