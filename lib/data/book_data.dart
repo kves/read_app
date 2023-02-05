@@ -30,19 +30,23 @@ class BookData extends ChangeNotifier {
     notifyListeners();
   }
 
+  // sum pages.
   void sumPages(String bookPages) {
     var x = int.parse(bookPages);
     bookPagesSum += x;
   }
 
+  // sum minutes spent od reading.
   void sumMinutesReading(String bookPages) {
     minutesReadingSum = bookPagesSum * 2;
   }
 
+  // get sum of pages.
   int getPagesSum() {
     return bookPagesSum;
   }
 
+  // get sum of minutes spent od reading.
   int getMinutesReadingSum() {
     return minutesReadingSum;
   }
