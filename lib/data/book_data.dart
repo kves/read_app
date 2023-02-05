@@ -10,16 +10,21 @@ class BookData extends ChangeNotifier {
     return booksList;
   }
 
+  bool isbookListEmpty = true;
+
   // add new book.
   void addBook(String bookTitle, String? bookAuthor, String? bookPages,
       String? bookRating, String bookAddedDate) {
-    booksList.add(Book(
-      bookTitle: bookTitle,
-      bookAuthor: bookAuthor,
-      bookPages: bookPages,
-      bookRating: bookRating,
-      bookAddedDate: bookAddedDate,
-    ));
+    booksList.add(
+      Book(
+        bookTitle: bookTitle,
+        bookAuthor: bookAuthor,
+        bookPages: bookPages,
+        bookRating: bookRating,
+        bookAddedDate: bookAddedDate,
+      ),
+    );
+    isbookListEmpty = false;
     notifyListeners();
   }
 }
