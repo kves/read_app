@@ -12,12 +12,13 @@ class BookData extends ChangeNotifier {
 
   // add new book.
   void addBook(String bookTitle, String? bookAuthor, String? bookPages,
-      String? bookRating) {
+      String? bookRating, String bookAddedDate) {
     booksList.add(Book(
       bookTitle: bookTitle,
       bookAuthor: bookAuthor,
       bookPages: bookPages,
       bookRating: bookRating,
+      bookAddedDate: bookAddedDate,
     ));
     notifyListeners();
   }

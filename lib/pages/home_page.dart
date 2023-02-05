@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
               bookAuthor: value.getBooksList()[index].bookAuthor,
               bookPages: value.getBooksList()[index].bookPages,
               bookRating: value.getBooksList()[index].bookRating,
+              bookAddedDate: value.getBooksList()[index].bookAddedDate,
             ),
           ),
         ),

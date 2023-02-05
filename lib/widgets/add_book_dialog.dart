@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:read_app/data/book_data.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AddBookDialog extends StatefulWidget {
-  final String? bookRating;
   const AddBookDialog({
     super.key,
-    this.bookRating,
   });
 
   @override
@@ -29,6 +28,11 @@ class _AddBookDialogState extends State<AddBookDialog> {
 
   // FocusNode when user doesn't fill bookTitle textfield and will tap save button.
   late FocusNode bookTitleFocusNode;
+
+  // book added date.
+
+  String bookAddedDate = DateTime.now().toString();
+
   @override
   void initState() {
     super.initState();
@@ -101,7 +105,8 @@ class _AddBookDialogState extends State<AddBookDialog> {
                       size: 5,
                       color: Colors.amber,
                     ),
-                    onRatingUpdate: (rating) => addRating(rating.toString()),
+                    onRatingUpdate: (rating) =>
+                        addRating(rating.toInt().toString()),
                   ),
 
                   Row(
@@ -133,6 +138,7 @@ class _AddBookDialogState extends State<AddBookDialog> {
     );
   }
 
+  // add rating value to controller.
   void addRating(String rating) {
     bookRatingController.text = rating;
   }
@@ -149,6 +155,7 @@ class _AddBookDialogState extends State<AddBookDialog> {
         bookAuthorController.text,
         bookPagesController.text,
         bookRatingController.text,
+        bookAddedDate,
       );
       // pop dialog.
       Navigator.pop(context);

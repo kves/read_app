@@ -3,7 +3,7 @@ class Book {
   final String? bookAuthor;
   final String? bookPages;
   final String? bookRating;
-  final String? bookAddedDate;
+  final String bookAddedDate;
   final String? bookCoverFromApi;
 
   Book({
@@ -11,7 +11,7 @@ class Book {
     this.bookAuthor,
     this.bookPages,
     this.bookRating,
-    this.bookAddedDate,
+    required this.bookAddedDate,
     this.bookCoverFromApi,
   });
 }

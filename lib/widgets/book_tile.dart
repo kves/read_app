@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class BookTile extends StatelessWidget {
   final String bookTitle;
   final String? bookAuthor;
   final String? bookPages;
   final String? bookRating;
-  const BookTile(
-      {super.key,
-      required this.bookTitle,
-      this.bookAuthor,
-      this.bookPages,
-      this.bookRating});
+  final String bookAddedDate;
+  const BookTile({
+    super.key,
+    required this.bookTitle,
+    this.bookAuthor,
+    this.bookPages,
+    this.bookRating,
+    required this.bookAddedDate,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +51,7 @@ class BookTile extends StatelessWidget {
                           Text(
                             bookTitle,
                             style: const TextStyle(
-                              fontSize: 24,
+                              fontSize: 26,
                             ),
                           ),
 
@@ -56,13 +60,13 @@ class BookTile extends StatelessWidget {
                             children: [
                               const Text(
                                 'Author:',
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 18),
                               ),
                               const SizedBox(width: 4),
                               Expanded(
                                 child: Text(
                                   bookAuthor ?? '',
-                                  style: const TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 18),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
@@ -76,16 +80,44 @@ class BookTile extends StatelessWidget {
                             children: [
                               const Text(
                                 'Pages:',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 16),
                               ),
                               const SizedBox(width: 4),
                               Text(
                                 bookPages ?? '',
+                                style: const TextStyle(fontSize: 16),
+                              ),
+                            ],
+                          ),
+
+                          const SizedBox(height: 6),
+
+                          // book rating
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  const Text(
+                                    'Rating:',
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    bookRating ?? '',
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                bookAddedDate.substring(
+                                    0, bookAddedDate.length - 16),
                                 style: const TextStyle(fontSize: 12),
                               ),
                             ],
                           ),
-                          Text(bookRating ?? ''),
                         ],
                       ),
                     ),
