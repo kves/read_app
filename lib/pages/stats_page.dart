@@ -22,6 +22,8 @@ class StatsPage extends StatelessWidget {
                   "Wow! You've read ${value.getPagesSum().toString()} pages!",
                   style: const TextStyle(fontSize: 24),
                 ),
+                Text(
+                    'That means you spend around ${value.getMinutesReadingSum().toString()} minutes reading!'),
               ],
             ),
           ),

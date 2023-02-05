@@ -5,6 +5,7 @@ class BookData extends ChangeNotifier {
   // list containing all added books.
   List<Book> booksList = [];
   int bookPagesSum = 0;
+  int minutesReadingSum = 0;
 
   // get the list of books.
   List<Book> getBooksList() {
@@ -34,7 +35,15 @@ class BookData extends ChangeNotifier {
     bookPagesSum += x;
   }
 
+  void sumMinutesReading(String bookPages) {
+    minutesReadingSum = bookPagesSum * 2;
+  }
+
   int getPagesSum() {
     return bookPagesSum;
+  }
+
+  int getMinutesReadingSum() {
+    return minutesReadingSum;
   }
 }
