@@ -23,7 +23,7 @@ class BookTile extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(16),
           child: Material(
-            color: Colors.brown[200],
+            color: Colors.brown[200]?.withOpacity(0.7),
             borderRadius: BorderRadius.circular(12),
             elevation: 20,
             child: Container(
