@@ -13,6 +13,15 @@ class StatsPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
+                Text(
+                  'Books in your library: ${value.booksList.length}',
+                  style: const TextStyle(fontSize: 24),
+                ),
+                Text(
+                  'Average rating: ${value.getAvgRating().toStringAsFixed(1)}',
+                  style: const TextStyle(fontSize: 24),
+                ),
+                const SizedBox(height: 40),
                 const Icon(
                   Icons.local_fire_department_outlined,
                   size: 160,

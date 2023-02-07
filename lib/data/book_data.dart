@@ -6,6 +6,8 @@ class BookData extends ChangeNotifier {
   List<Book> booksList = [];
   int bookPagesSum = 0;
   int minutesReadingSum = 0;
+  int ratingSum = 0;
+  double avgRating = 0.0;
 
   // get the list of books.
   List<Book> getBooksList() {
@@ -36,18 +38,27 @@ class BookData extends ChangeNotifier {
     bookPagesSum += x;
   }
 
-  // sum minutes spent od reading.
-  void sumMinutesReading(String bookPages) {
-    minutesReadingSum = bookPagesSum * 2;
-  }
-
   // get sum of pages.
   int getPagesSum() {
     return bookPagesSum;
   }
 
+  // sum minutes spent od reading.
+  void sumMinutesReading(String bookPages) {
+    minutesReadingSum = bookPagesSum * 2;
+  }
+
   // get sum of minutes spent od reading.
   int getMinutesReadingSum() {
     return minutesReadingSum;
+  }
+
+  void sumRating(String bookRating) {
+    var x = int.parse(bookRating);
+    ratingSum += x;
+  }
+
+  double getAvgRating() {
+    return avgRating = ratingSum / booksList.length;
   }
 }

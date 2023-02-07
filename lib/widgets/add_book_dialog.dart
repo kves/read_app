@@ -161,7 +161,8 @@ class _AddBookDialogState extends State<AddBookDialog> {
       if (bookPagesController.text.isNotEmpty) {
         Provider.of<BookData>(context, listen: false)
           ..sumPages(bookPagesController.text)
-          ..sumMinutesReading(bookPagesController.text);
+          ..sumMinutesReading(bookPagesController.text)
+          ..sumRating(bookRatingController.text);
       }
       // pop dialog.
       Navigator.pop(context);
