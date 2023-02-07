@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:read_app/data/book_data.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class StatsPage extends StatelessWidget {
   const StatsPage({super.key});
@@ -13,6 +15,7 @@ class StatsPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
+                Text(AppLocalizations.of(context).helloWorld),
                 Text(
                   'Books in your library: ${value.booksList.length}',
                   style: const TextStyle(fontSize: 24),

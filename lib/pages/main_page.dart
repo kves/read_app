@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:read_app/pages/home_page.dart';
 import 'package:read_app/pages/settings_page.dart';
 import 'package:read_app/pages/stats_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -32,11 +33,11 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
         currentIndex: currentIndex,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.insights), label: 'Stats'),
+        items: [
+          BottomNavigationBarItem(icon: const Icon(Icons.home), label: AppLocalizations.of(context).home),
+          BottomNavigationBarItem(icon: const Icon(Icons.insights), label: AppLocalizations.of(context).stats),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Settings'),
+              icon: const Icon(Icons.settings), label: AppLocalizations.of(context).settings),
         ],
       ),
     );

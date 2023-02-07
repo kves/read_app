@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:read_app/data/book_data.dart';
 import 'package:read_app/pages/main_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => BookData(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Read',
         theme: ThemeData(
           primarySwatch: Colors.brown,
           inputDecorationTheme: const InputDecorationTheme(
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: const MainPage(),
       ),
     );
