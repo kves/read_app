@@ -1,3 +1,5 @@
 {
-    "helloWorld": "Hello World!"
+  "home": "Biblioteka",
+  "stats": "Statystyki",
+  "settings": "Ustawienia"
 }
