@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BookTile extends StatelessWidget {
   final String bookTitle;
@@ -58,9 +58,9 @@ class BookTile extends StatelessWidget {
                           // book author.
                           Row(
                             children: [
-                              const Text(
-                                'Author:',
-                                style: TextStyle(fontSize: 18),
+                              Text(
+                                AppLocalizations.of(context).author,
+                                style: const TextStyle(fontSize: 18),
                               ),
                               const SizedBox(width: 4),
                               Expanded(
@@ -78,9 +78,9 @@ class BookTile extends StatelessWidget {
                           // book pages.
                           Row(
                             children: [
-                              const Text(
-                                'Pages:',
-                                style: TextStyle(fontSize: 16),
+                              Text(
+                                AppLocalizations.of(context).pagesCapitalized,
+                                style: const TextStyle(fontSize: 16),
                               ),
                               const SizedBox(width: 4),
                               Text(
@@ -98,9 +98,9 @@ class BookTile extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  const Text(
-                                    'Rating:',
-                                    style: TextStyle(fontSize: 14),
+                                  Text(
+                                    AppLocalizations.of(context).rating,
+                                    style: const TextStyle(fontSize: 14),
                                   ),
                                   const SizedBox(width: 4),
                                   Text(

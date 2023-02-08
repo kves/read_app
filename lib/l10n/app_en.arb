@@ -15,6 +15,8 @@
   "bookAuthor": "Book author",
   "pagesCapitalized": "Pages",
   "save": "save",
-  "cancel": "cancel"
+  "cancel": "cancel",
+  "author": "Author",
+  "rating": "Rating"
 
 }
