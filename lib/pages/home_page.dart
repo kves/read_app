@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:read_app/data/book_data.dart';
 import 'package:read_app/widgets/book_tile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/add_book_dialog.dart';
 
@@ -22,14 +23,14 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     Image.asset('lib/assets/images/book_empty.png'),
-                    const Text(
-                      'Your library is empty :(',
-                      style: TextStyle(fontSize: 30),
+                    Text(
+                      '${AppLocalizations.of(context).yourLibraryIsEmpty} :(',
+                      style: const TextStyle(fontSize: 30),
                     ),
                     const SizedBox(height: 30),
-                    const Text(
-                      'Add book you recently read by clicking the button below.',
-                      style: TextStyle(fontSize: 14),
+                    Text(
+                      '${AppLocalizations.of(context).addBookYouRecentlyReadByClickingTheButtonBelow}.',
+                      style: const TextStyle(fontSize: 14),
                     )
                   ],
                 ),

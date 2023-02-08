@@ -8,6 +8,8 @@
   "wowYouveRead": "Wow! You've read",
   "pages": "pages",
   "thatMeansYouSpendAround": "That means you spend around",
-  "minutesReading": "minutes reading"
+  "minutesReading": "minutes reading",
+  "yourLibraryIsEmpty": "Your library is empty",
+  "addBookYouRecentlyReadByClickingTheButtonBelow": "Add book you recently read by clicking the button below"
 
 }
