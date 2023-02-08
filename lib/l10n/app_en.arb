@@ -10,6 +10,11 @@
   "thatMeansYouSpendAround": "That means you spend around",
   "minutesReading": "minutes reading",
   "yourLibraryIsEmpty": "Your library is empty",
-  "addBookYouRecentlyReadByClickingTheButtonBelow": "Add book you recently read by clicking the button below"
+  "addBookYouRecentlyReadByClickingTheButtonBelow": "Add book you recently read by clicking the button below",
+  "bookTitle": "Book title",
+  "bookAuthor": "Book author",
+  "pagesCapitalized": "Pages",
+  "save": "save",
+  "cancel": "cancel"
 
 }

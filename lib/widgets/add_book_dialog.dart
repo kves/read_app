@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:read_app/data/book_data.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddBookDialog extends StatefulWidget {
   const AddBookDialog({
@@ -70,16 +70,16 @@ class _AddBookDialogState extends State<AddBookDialog> {
                   TextField(
                     focusNode: bookTitleFocusNode,
                     controller: bookTitleController,
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(), hintText: 'Book title'),
+                    decoration: InputDecoration(
+                        border: const OutlineInputBorder(), hintText: AppLocalizations.of(context).bookTitle),
                   ),
                   const SizedBox(height: 10),
                   // book author.
                   TextField(
                     controller: bookAuthorController,
-                    decoration: const InputDecoration(
-                      hintText: 'Book author',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context).bookAuthor,
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -88,9 +88,9 @@ class _AddBookDialogState extends State<AddBookDialog> {
                     controller: bookPagesController,
                     keyboardType: TextInputType.number,
                     maxLength: 4,
-                    decoration: const InputDecoration(
-                      hintText: 'Pages',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context).pagesCapitalized,
+                      border: const OutlineInputBorder(),
                     ),
                   ),
 
@@ -114,11 +114,11 @@ class _AddBookDialogState extends State<AddBookDialog> {
                     children: [
                       TextButton(
                         onPressed: save,
-                        child: const Text('save'),
+                        child: Text(AppLocalizations.of(context).save),
                       ),
                       TextButton(
                         onPressed: cancel,
-                        child: const Text('cancel'),
+                        child: Text(AppLocalizations.of(context).cancel),
                       ),
                     ],
                   ),
