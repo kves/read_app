@@ -1,5 +1,20 @@
 {
   "home": "Biblioteka",
   "stats": "Statystyki",
-  "settings": "Ustawienia"
+  "settings": "Ustawienia",
+  "booksInYourLibrary": "Książek w twojej bibliotece",
+  "averageRating": "Średnia ocena",
+  "wowYouveRead": "Wow! Przeczytałeś już",
+  "pages": "stron",
+  "thatMeansYouSpendAround": "To oznacza, że poświęciłeś około",
+  "minutesReading": "minut na czytanie",
+  "yourLibraryIsEmpty": "Twoja biblioteka jest pusta",
+  "addBookYouRecentlyReadByClickingTheButtonBelow": "Dodaj ostatnio przeczytaną książkę klikając przycisk poniżej",
+  "bookTitle": "Tytuł książki",
+  "bookAuthor": "Autor książki",
+  "pagesCapitalized": "Strony",
+  "save": "zapisz",
+  "cancel": "anuluj",
+  "author": "Autor",
+  "rating": "Ocena"
 }
