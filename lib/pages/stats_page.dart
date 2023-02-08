@@ -15,13 +15,12 @@ class StatsPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Text(AppLocalizations.of(context).helloWorld),
                 Text(
-                  'Books in your library: ${value.booksList.length}',
+                  '${AppLocalizations.of(context).booksInYourLibrary}: ${value.booksList.length}',
                   style: const TextStyle(fontSize: 24),
                 ),
                 Text(
-                  'Average rating: ${value.getAvgRating().toStringAsFixed(1)}',
+                  '${AppLocalizations.of(context).averageRating}: ${value.getAvgRating().toStringAsFixed(1)}',
                   style: const TextStyle(fontSize: 24),
                 ),
                 const SizedBox(height: 40),
@@ -31,12 +30,12 @@ class StatsPage extends StatelessWidget {
                   color: Colors.orange,
                 ),
                 Text(
-                  "Wow! You've read ${value.getPagesSum().toString()} pages!",
+                  "${AppLocalizations.of(context).wowYouveRead} ${value.getPagesSum().toString()} ${AppLocalizations.of(context).pages}!",
                   style: const TextStyle(fontSize: 24),
                 ),
                 const SizedBox(height: 10),
                 Text(
-                    'That means you spend around ${value.getMinutesReadingSum().toString()} minutes reading!'),
+                    '${AppLocalizations.of(context).thatMeansYouSpendAround} ${value.getMinutesReadingSum().toString()} ${AppLocalizations.of(context).minutesReading}!'),
               ],
             ),
           ),

@@ -2,5 +2,12 @@
 {
   "home": "Home",
   "stats": "Stats",
-  "settings": "Settings"
+  "settings": "Settings",
+  "booksInYourLibrary": "Books in your library",
+  "averageRating": "Average rating",
+  "wowYouveRead": "Wow! You've read",
+  "pages": "pages",
+  "thatMeansYouSpendAround": "That means you spend around",
+  "minutesReading": "minutes reading"
+
 }
