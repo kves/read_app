@@ -59,6 +59,9 @@ class BookData extends ChangeNotifier {
   }
 
   double getAvgRating() {
+    if (ratingSum < 1) {
+      return avgRating;
+    }
     return avgRating = ratingSum / booksList.length;
   }
 }
