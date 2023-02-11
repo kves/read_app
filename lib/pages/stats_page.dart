@@ -10,35 +10,54 @@ class StatsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<BookData>(
       builder: (context, value, child) => Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
-                Text(
-                  '${AppLocalizations.of(context).booksInYourLibrary}: ${value.booksList.length}',
-                  style: const TextStyle(fontSize: 24),
+        body: value.isbookListEmpty
+            ? SafeArea(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 180),
+                    Text(
+                      AppLocalizations.of(context).nothingToCalculate,
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      AppLocalizations.of(context).provideSomeDatabyAddingBook,
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                    Image.asset('lib/assets/images/no_stats.png'),
+                  ],
                 ),
-                Text(
-                  '${AppLocalizations.of(context).averageRating}: ${value.getAvgRating().toStringAsFixed(1)}',
-                  style: const TextStyle(fontSize: 24),
+              )
+            : SafeArea(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.local_fire_department_outlined,
+                        size: 160,
+                        color: Colors.orange,
+                      ),
+                      Text(
+                        "${AppLocalizations.of(context).wowYouveRead} ${value.getPagesSum().toString()} ${AppLocalizations.of(context).pages}!",
+                        style: const TextStyle(fontSize: 24),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                          '${AppLocalizations.of(context).thatMeansYouSpendAround} ${value.getMinutesReadingSum().toString()} ${AppLocalizations.of(context).minutesReading}!'),
+                      const SizedBox(height: 40),
+                      Text(
+                        '${AppLocalizations.of(context).booksInYourLibrary}: ${value.booksList.length}',
+                        style: const TextStyle(fontSize: 24),
+                      ),
+                      Text(
+                        '${AppLocalizations.of(context).averageRating}: ${value.getAvgRating().toStringAsFixed(1)}',
+                        style: const TextStyle(fontSize: 24),
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 40),
-                const Icon(
-                  Icons.local_fire_department_outlined,
-                  size: 160,
-                  color: Colors.orange,
-                ),
-                Text(
-                  "${AppLocalizations.of(context).wowYouveRead} ${value.getPagesSum().toString()} ${AppLocalizations.of(context).pages}!",
-                  style: const TextStyle(fontSize: 24),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                    '${AppLocalizations.of(context).thatMeansYouSpendAround} ${value.getMinutesReadingSum().toString()} ${AppLocalizations.of(context).minutesReading}!'),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
     );
   }

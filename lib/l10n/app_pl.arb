@@ -16,5 +16,8 @@
   "save": "zapisz",
   "cancel": "anuluj",
   "author": "Autor",
-  "rating": "Ocena"
+  "rating": "Ocena",
+  "nothingToCalculate": "Nic tu nie ma",
+  "provideSomeDatabyAddingBook": "Prześij trochę danych dodając książkę",
+  "changeLanguage": "Zmień język"
 }

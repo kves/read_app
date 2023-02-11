@@ -17,6 +17,9 @@
   "save": "save",
   "cancel": "cancel",
   "author": "Author",
-  "rating": "Rating"
+  "rating": "Rating",
+  "nothingToCalculate": "Nothing to calculate",
+  "provideSomeDatabyAddingBook": "Provide some data by adding a book",
+  "changeLanguage": "Change language"
 
 }
