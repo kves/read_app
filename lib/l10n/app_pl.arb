@@ -19,5 +19,7 @@
   "rating": "Ocena",
   "nothingToCalculate": "Nic tu nie ma",
   "provideSomeDatabyAddingBook": "Prześij trochę danych dodając książkę",
-  "changeLanguage": "Zmień język"
+  "changeLanguage": "Zmień język",
+  "areYouSureYouWantToDeleteThisBook": "Na pewno chcesz usunąć tę książkę?",
+  "delete": "usuń"
 }

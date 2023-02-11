@@ -157,7 +157,7 @@ class _AddBookDialogState extends State<AddBookDialog> {
         bookRatingController.text,
         bookAddedDate,
       );
-      // add sum of pages and minutes spent on reading.
+      // add sum of pages, minutes spent on reading and rating.
       if (bookPagesController.text.isNotEmpty) {
         Provider.of<BookData>(context, listen: false)
           ..sumPages(bookPagesController.text)

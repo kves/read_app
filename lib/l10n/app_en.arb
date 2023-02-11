@@ -20,6 +20,8 @@
   "rating": "Rating",
   "nothingToCalculate": "Nothing to calculate",
   "provideSomeDatabyAddingBook": "Provide some data by adding a book",
-  "changeLanguage": "Change language"
+  "changeLanguage": "Change language",
+  "areYouSureYouWantToDeleteThisBook": "Are you sure you want to delete this book?",
+  "delete": "delete"
 
 }

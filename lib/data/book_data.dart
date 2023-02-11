@@ -32,6 +32,16 @@ class BookData extends ChangeNotifier {
     notifyListeners();
   }
 
+  //delete book.
+  void deleteBook(String bookTitle) {
+    booksList.removeWhere((Book book) => book.bookTitle == bookTitle);
+
+    if (booksList.isEmpty) {
+      isbookListEmpty = true;
+    }
+    notifyListeners();
+  }
+
   // sum pages.
   void sumPages(String bookPages) {
     var x = int.parse(bookPages);
