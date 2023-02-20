@@ -44,12 +44,6 @@ class _BookTileState extends State<BookTile> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // placeholder for in future api provided books covers.
-                    const SizedBox(
-                      width: 80,
-                      height: 100,
-                      child: Placeholder(),
-                    ),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
